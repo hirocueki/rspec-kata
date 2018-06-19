@@ -1,6 +1,7 @@
 %h1= @project.name
 
 %p= simple_format @project.description
+%p Owner: #{@project.owner.name}
 %p Due: #{@project.due_on}
 
 = link_to 'Edit', edit_project_path(@project), class: 'btn btn-default'
