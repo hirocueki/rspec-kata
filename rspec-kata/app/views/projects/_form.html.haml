@@ -1,4 +1,4 @@
-= form_for @project do |f|
+= form_for @project, local: true do |f|
   - if @project.errors.any?
     #error_explanation
       %h2= "#{pluralize(@project.errors.count, "error")} prohibited this project from being saved:"
@@ -6,5 +6,19 @@
         - @project.errors.full_messages.each do |message|
           %li= message
 
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  
+  .form-group
+    = f.label :description
+    = f.text_field :description, class: 'form-control'
+  
+  .form-group
+    = f.label :due_on
+    = f.date_select :due_on, class: 'form-control'
+
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: 'btn btn-primary'
+    - cancel_path = (@project.persisted? ? project_path(@project) : projects_path)
+    = link_to 'Cancel', cancel_path, class: 'btn btn-danger', date: { confirm: 'Are you sure?' }
