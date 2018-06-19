@@ -9,9 +9,19 @@
 %p Due: #{@project.due_on}
 
 %div
+  =link_to 'Add Task', new_project_task_path(@project), class: 'btn btn-default'
   =link_to 'Add Note', new_project_note_path(@project), class: 'btn btn-default'
   =link_to 'Edit', edit_project_path(@project), class: 'btn btn-default'
 
-%h2
+%h2 Tasks
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Actions
+  %tbody
+    =render @project.tasks
+
+%h2 Notes
 .list-group
   =render @project.notes
