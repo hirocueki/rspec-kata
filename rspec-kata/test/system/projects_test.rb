@@ -1,9 +1,9 @@
 require "application_system_test_case"
 
-class ProjectsTest < ApplicationSystemTestCase
+class Api::ProjectsTest < ApplicationSystemTestCase
   # test "visiting the index" do
-  #   visit projects_url
+  #   visit api_projects_url
   #
-  #   assert_selector "h1", text: "Project"
+  #   assert_selector "h1", text: "Api::Project"
   # end
 end

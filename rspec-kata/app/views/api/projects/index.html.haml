@@ -1,0 +1,19 @@
+%h1 Listing api_projects
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @api_projects.each do |api_project|
+      %tr
+        %td= link_to 'Show', api_project
+        %td= link_to 'Edit', edit_api_project_path(api_project)
+        %td= link_to 'Destroy', api_project, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Project', new_api_project_path
