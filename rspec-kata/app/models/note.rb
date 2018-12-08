@@ -4,4 +4,8 @@ class Note < ApplicationRecord
 
   # note.user.name => note.user_name
   delegate :name, to: :user, prefix: true
+
+  scope :search, ->(term) {
+    where("message LIKE ?", "%#{term}%")
+  }
 end

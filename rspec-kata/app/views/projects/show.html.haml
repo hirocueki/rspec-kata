@@ -23,5 +23,12 @@
     =render @project.tasks
 
 %h2 Notes
+
+= form_with url: project_notes_path(@project), local: true, method: :get, class: "form-inline" do |f|
+  .form-group
+    = f.label :term
+    = f.search_field :term, class: "form-control"
+    = f.submit "Search Notes", class: "btn btn-default"
+
 .list-group
   =render @project.notes

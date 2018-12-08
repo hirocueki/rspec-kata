@@ -4,7 +4,7 @@ class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
 
   def index
-    @notes = Note.all
+    @notes = @project.notes.search(params[:term])
   end
 
   def show
